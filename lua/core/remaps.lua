@@ -56,3 +56,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 keymap.set('n', '<leader>zz', ':set invwrap<CR>', { desc = 'Inverse text wrapping' })
 
 keymap.set('n', '\\', vim.cmd.NvimTreeToggle, { desc = 'Toggle nvim tree' })
+keymap.set('n', '<leader>ts', ':split | terminal<CR>', { desc = 'Open terminal in a horizontal pane' })
+keymap.set('n', '<leader>tv', ':vsplit | terminal<CR>', { desc = 'Open terminal in a vertical pane' })
