@@ -28,6 +28,8 @@ keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnosti
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+keymap.set('t', 'jk', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+-- keymap.set('e', 'jk', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -58,3 +60,9 @@ keymap.set('n', '<leader>zz', ':set invwrap<CR>', { desc = 'Inverse text wrappin
 keymap.set('n', '\\', vim.cmd.NvimTreeToggle, { desc = 'Toggle nvim tree' })
 keymap.set('n', '<leader>ts', ':split | terminal<CR>', { desc = 'Open terminal in a horizontal pane' })
 keymap.set('n', '<leader>tv', ':vsplit | terminal<CR>', { desc = 'Open terminal in a vertical pane' })
+
+-- buffer keymaps
+keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = '[B]buffer to next' })
+keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = '[B]buffer to previous' })
+keymap.set('n', '<leader>bx', ':bp|bd#<CR>', { desc = 'exit current [B]uffer' })
+keymap.set('n', '<leader>bX', ':bp|bd!#<CR>', { desc = 'exit current [B]uffer' })

@@ -21,6 +21,7 @@ return {
         'python',
         'json',
         'yaml',
+        'toml',
         'sql',
       },
       -- Autoinstall languages that are not installed
