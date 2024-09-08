@@ -25,4 +25,10 @@ return {
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   { 'wakatime/vim-wakatime', lazy = false },
   'numToStr/Comment.nvim',
+  {
+    'danymat/neogen',
+    config = true,
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*"
+  },
 }

@@ -66,3 +66,5 @@ keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = '[B]buffer to next' })
 keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = '[B]buffer to previous' })
 keymap.set('n', '<leader>bx', ':bp|bd#<CR>', { desc = 'exit current [B]uffer' })
 keymap.set('n', '<leader>bX', ':bp|bd!#<CR>', { desc = 'exit current [B]uffer' })
+
+keymap.set('n', '<leader>mp', vim.cmd.Neogen, { desc = 'Auto doc string' })
