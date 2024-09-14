@@ -68,3 +68,16 @@ keymap.set('n', '<leader>bx', ':bp|bd#<CR>', { desc = 'exit current [B]uffer' })
 keymap.set('n', '<leader>bX', ':bp|bd!#<CR>', { desc = 'exit current [B]uffer' })
 
 keymap.set('n', '<leader>mp', vim.cmd.Neogen, { desc = 'Auto doc string' })
+
+-- neogit
+vim.keymap.set('n', '<leader>gs', require('neogit').open, { silent = true, noremap = true })
+
+vim.keymap.set('n', '<leader>gc', ':Neogit commit<CR>', { silent = true, noremap = true })
+
+vim.keymap.set('n', '<leader>gp', ':Neogit pull<CR>', { silent = true, noremap = true })
+
+vim.keymap.set('n', '<leader>gP', ':Neogit push<CR>', { silent = true, noremap = true })
+
+vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<CR>', { silent = true, noremap = true })
+
+vim.keymap.set('n', '<leader>gB', ':G blame<CR>', { silent = true, noremap = true })
