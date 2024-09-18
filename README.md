@@ -39,8 +39,12 @@ Make sure to install all dependencies listed [here](https://github.com/nvim-lua/
 ```bash
 $ git clone https://github.com/e3oroush/.config.nvim.git .config/nvim
 ```
+To install [sqls](https://github.com/sqls-server/sqls) plugin, you should install its go server:
+```bash
+go install github.com/sqls-server/sqls@v0.2.27
+```
 
 ## TODO
 - [ ] Document the keymaps
 - [ ] Add better integration for Python development
-- [ ] Suppoprt different profiles for Python/Go... development
+- [ ] Support different profiles for Python/Go... development

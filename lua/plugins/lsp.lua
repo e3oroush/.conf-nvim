@@ -21,7 +21,7 @@ return {
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
+      'nanotee/sqls.nvim',
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
@@ -172,7 +172,13 @@ return {
         ruff_lsp = {},
         -- ruff = {},
         pyright = {},
-        sqlls = {},
+        sqlls = {
+          filetypes = { 'sql' },
+          root_dir = function(fname)
+            -- Use Neovim's built-in utility to find a root dir
+            return require('lspconfig').util.find_git_ancestor(fname) or vim.fn.getcwd()
+          end,
+        },
         -- jsonls = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -216,13 +222,22 @@ return {
         'prettier',
         'taplo',
         'ruff',
-        'sqlfluff',
+        'sql-formatter',
         'codespell',
-        'sqlls',
         'ruff-lsp',
+        'bash-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
+      require('lspconfig').sqls.setup {
+        filetypes = { 'sql' },
+        root_dir = function(fname)
+          -- Use Neovim's built-in utility to find a root dir
+          return require('lspconfig').util.find_git_ancestor(fname) or vim.fn.getcwd()
+        end,
+        on_attach = function(client, bufnr)
+          require('sqls').on_attach(client, bufnr)
+        end,
+      }
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
@@ -235,6 +250,15 @@ return {
           end,
         },
       }
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'sh',
+        callback = function()
+          vim.lsp.start {
+            name = 'bash-language-server',
+            cmd = { 'bash-language-server', 'start' },
+          }
+        end,
+      })
     end,
   },
 }
