@@ -68,3 +68,8 @@ keymap.set('n', '<leader>bx', ':bp|bd#<CR>', { desc = 'exit current [B]uffer' })
 keymap.set('n', '<leader>bX', ':bp|bd!#<CR>', { desc = 'exit current [B]uffer' })
 
 keymap.set('n', '<leader>mp', vim.cmd.Neogen, { desc = 'Auto doc string' })
+local function insertFullPath()
+  local filepath = vim.fn.expand '%'
+  vim.fn.setreg('+', filepath:match '^.+/(.+)$')
+end
+keymap.set('n', '<leader>zc', insertFullPath, { desc = 'set the filename to clipboard' })
