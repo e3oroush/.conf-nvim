@@ -53,6 +53,8 @@ return {
       { '<leader>b', group = '[B]uffer' },
       { '<leader>m', group = '[M]agma keybindings' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      { '<leader>z', group = 'Util functions', mode = { 'n', 'v' } },
+      { '<leader>zs', group = 'snapshot', mode = { 'v' } },
     }
   end,
 }
