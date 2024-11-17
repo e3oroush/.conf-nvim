@@ -11,3 +11,15 @@ R = function(name)
   RELOAD(name)
   return require(name)
 end
+-- copy current file path to clipboard
+vim.api.nvim_create_user_command('Cppath', function()
+  local path = vim.fn.expand '%:p'
+  vim.fn.setreg('+', path)
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, { desc = 'copy current file path to clipboard' })
+-- copy current name  to clipboard
+vim.api.nvim_create_user_command('Cpfile', function()
+  local path = vim.fn.expand '%:t'
+  vim.fn.setreg('+', path)
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, { desc = 'copy current file name to clipboard' })
