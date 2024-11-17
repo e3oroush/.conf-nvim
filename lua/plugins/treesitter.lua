@@ -22,6 +22,7 @@ return {
         'json',
         'yaml',
         'toml',
+        'go',
         'sql',
       },
       -- Autoinstall languages that are not installed

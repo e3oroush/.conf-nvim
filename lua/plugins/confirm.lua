@@ -52,9 +52,10 @@ return {
         python = { 'isort', 'black' },
         json = { 'prettier' },
         yaml = { 'prettier' },
+        markdown = { 'prettier' },
         toml = { 'taplo' },
         sql = { 'sql_formatter' },
-        ['*'] = { 'codespell' },
+        -- ['*'] = { 'codespell' },
 
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
