@@ -27,7 +27,7 @@ keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnosti
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 keymap.set('t', 'jk', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- keymap.set('e', 'jk', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
@@ -58,8 +58,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 keymap.set('n', '<leader>zz', ':set invwrap<CR>', { desc = 'Inverse text wrapping' })
 
 keymap.set('n', '\\', vim.cmd.NvimTreeToggle, { desc = 'Toggle nvim tree' })
-keymap.set('n', '<leader>ts', ':split | terminal<CR>', { desc = 'Open terminal in a horizontal pane' })
-keymap.set('n', '<leader>tv', ':vsplit | terminal<CR>', { desc = 'Open terminal in a vertical pane' })
+keymap.set('n', '<leader>ts', ':ToggleTerm direction=horizontal<CR>', { desc = 'Open terminal in a horizontal pane' })
+keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<CR>', { desc = 'Open terminal in a vertical pane' })
+keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<CR>', { desc = 'Open terminal in a floating pane' })
+keymap.set('n', '<leader>tt', ':ToggleTerm<CR>', { desc = 'Toggle terminal' })
 
 -- buffer keymaps
 keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = '[B]buffer to next' })
