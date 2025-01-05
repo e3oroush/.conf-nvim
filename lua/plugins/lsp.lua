@@ -169,8 +169,7 @@ return {
       local servers = {
         -- clangd = {},
         gopls = {},
-        ruff_lsp = {},
-        -- ruff = {},
+        ruff = {},
         pyright = {},
         sqlls = {
           filetypes = { 'sql' },
@@ -224,7 +223,7 @@ return {
         'ruff',
         'sql-formatter',
         'codespell',
-        'ruff-lsp',
+        'ruff',
         'bash-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
